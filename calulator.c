@@ -4,7 +4,7 @@
 int main(){
     int n1, n2, choice=0,total=0;
     char answer;
-    printf("************* WELCOME TO CALCULATOR PROJECT ************* ");
+    printf("************* WELCOME TO CALCULATOR PROJECT *************");
     while(choice!=7){ 
     
     printf("\n1. Addition");
