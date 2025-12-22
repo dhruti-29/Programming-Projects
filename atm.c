@@ -1,24 +1,43 @@
+/* 
+   ATM Machine Project in C
+   Author: Viradiya Dhruti
+   Features: Multi-language, PIN verification, Deposit, Withdraw, etc.
+*/
+
 #include<stdio.h>
+void verifypin(){
+    int pin;
+    printf("Enter your ATM PIN: ");
+    scanf("%d",&pin);
+    if(pin==9999){
+        printf("your pin is correct\n");
+    }
+    else{
+        printf("Incorrect PIN. Access denied.\n");
+    }   
+}
 int main(){
     int pin,newpin;
     char ch,language;
+    float balance=1000.0;
     printf("Welcome to the ATM Machine\n");
     //language selection
 printf("Select Language / ભાષા પસંદ કરો:\n");
 printf("1. English\n");
 printf("2. ગુજરાતી\n");
+
 printf("Enter your choice (1 or 2): ");
-scanf(" %c", &language);    
+scanf(" %c", &language);   
+
 if(language=='1'){
     printf("You have selected English.\n");
+    
+    //account existence check
     printf("you have already have bank account ?? (y/n)\n");
     scanf(" %c",&ch);
     if(ch=='y'){
-        start:
-        //PIN verification
-    printf("Enter your ATM PIN: ");
-    scanf("%d",&pin);
-    if(pin==9999){
+       verifypin();
+    }
 printf("your pin is correct\n");
 printf("Welcome to ATM\n");
 printf("\t************************************************\n");
@@ -35,7 +54,7 @@ int choice;
 printf("Enter your choice: ");
 scanf("%d",&choice);
 
-float balance=1000.0;
+
 switch(choice){
     //withdraw operation
     case 1:
@@ -77,6 +96,7 @@ case 4 :{
     scanf("%d",&newpin);
     pin=newpin;
     printf("your pin has been changed successfully\n");
+    break;
 }
 case 5:{
     
@@ -88,10 +108,8 @@ default:
     printf("Invalid choice! Please select a valid option.\n");
 }
 }
-}
-    else{
-        printf("Incorrect PIN. Access denied.\n");
-    } 
+
+     
 
     }
 else if(ch=='n'){
@@ -115,11 +133,20 @@ scanf("%d",&e1.pin);
 printf("enter balance : ");
 scanf("%d",&e1.balance);
 
-goto start;
+printf("Account created successfully!\n");
+printf("Your account details:\n");
+printf("Account Number: %d\n", e1.accno);
+printf("Name: %s\n", e1.name);
+printf("Balance: %d\n", e1.balance);    
+
+verifypin();
+
 }
-}
-else if(language=='2'){
+
+else {
+
     printf("તમે ગુજરાતી પસંદ કરી છે.\n");
+    while(1){ 
     // Additional Gujarati language handling can be added here      
     printf("1.નાણાં ઉપાડવા\n");
     printf("2.જમા કરાવવી\n");
@@ -131,17 +158,18 @@ else if(language=='2'){
     printf("તમારી પસંદગી દાખલ કરો: ");
     scanf("%d",&choice1);
     // Further implementation for Gujarati options can be added here    
-float balance=100.0; 
-float withdraw=0.00;
+float balance=100.0,withdraw; 
+int newpin;
 switch(choice1){
     case 1:
+   
     printf("પૈસા ની રકમ દાખલ કરો :");
     scanf("%f",&withdraw);
     if(withdraw<balance){
         printf("તમે સફળતાપૂર્વક પૈસા ઉપાડ્યા છે\n");
         balance=balance - withdraw;
         printf("તમારું વર્તમાન બેલેન્સ છે: %.2f\n",balance);     
-
+break;
 }
 case 2:
 {
@@ -151,16 +179,19 @@ case 2:
     balance=balance+deposit;
     printf("તમે સફળતાપૂર્વક જમા કરાવ્યા છે\n");
     printf("તમારું વર્તમાન બેલેન્સ છે: %.2f\n",balance);     
+break;
 } 
-int newpin = 0;
 case 3:
-    printf("તમારું વર્તમાન બેલેન્સ છે: %.2f\n",balance);     
+    printf("તમારું વર્તમાન બેલેન્સ છે: %.2f\n",balance);    
+
     break;
     case 4:
+    
     printf("નવો પિન દાખલ કરો :");
     scanf("%d",&newpin);
     printf("તમારો પિન સફળતાપૂર્વક બદલાયો છે\n");
     break;
+
     case 5:
     printf("અમારી ATM સેવા ઉપયોગ કરવા માટે આભાર. અલવિદા!\n");     
     break;
@@ -168,5 +199,6 @@ case 3:
     printf("અમાન્ય પસંદગી! કૃપા કરીને માન્ય વિકલ્પ પસંદ કરો.\n");
 }
 }
-    return 0;
-}   
+    
+}    
+} 
