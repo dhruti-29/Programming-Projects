@@ -27,6 +27,7 @@ int x, y;
     scanf("%d %d", &x, &y);
  char c;
 int s[9][19] = {0};
+int food[1][2] = {{3,4}};
 while(1) {
     
     
@@ -40,24 +41,29 @@ while(1) {
 printf("enter position of snake : ");
     scanf("%c", &c);
 
-    if('c'=='r'){
+    if(c=='r'){
 x = x + 1;
-printf("")
+printf("now snake =%d  \n",s[x][y]);
 
     }
-    if('c'=='l'){
+    if(c=='l'){
 x = x - 1;      
-
+printf("now snake =%d \n",s[x][y]);
     }   
-    if('c'=='u'){
+    if(c=='u'){
 y = y - 1;
+printf("now snake =%d \n",s[x][y]);
     }
-    if('c'=='d'){
+    if(c=='d'){
 y = y + 1;
-    }
+printf("now snake =%d \n",s[x][y]);
     printf("Continue playing...\n");
 
-    
+
+    if(s[x][y] == food[0][0]) {
+        printf("Food eaten!\n");
+
+
 }
-      }      return 0;
+      } }   }  return 0;
      }
