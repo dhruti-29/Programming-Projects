@@ -40,7 +40,7 @@ while(1) {
         printf("Inside the box!\n");
 printf("enter position of snake : ");
     scanf("%c", &c);
-
+getchar();
     if(c=='r'){
 x = x + 1;
 printf("now snake =%d  \n",s[x][y]);
@@ -61,8 +61,12 @@ printf("now snake =%d \n",s[x][y]);
 
 
     if(s[x][y] == food[0][0]) {
-        printf("Food eaten!\n");
+        printf("Food eaten\n");
+        s[x][y] = 1;
+        food[0][0] = -1;
+        printf("Snake length increased!\n");
 
+        
 
 }
       } }   }  return 0;
