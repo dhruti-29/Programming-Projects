@@ -1,6 +1,5 @@
 /* 
    ATM Machine Project in C
-   Author: Viradiya Dhruti
    Features: Multi-language, PIN verification, Deposit, Withdraw, etc.
 */
 
